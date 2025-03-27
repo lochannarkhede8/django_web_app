@@ -1,0 +1,326 @@
+/* Base Styles */
+body {
+    background-color: #f0f4f8;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+    color: #2d3748;
+    overflow-x: hidden;
+    background: linear-gradient(135deg, #ff9a9e, #fad0c4, #fbc2eb, #a18cd1, #fbc2eb, #84fab0, #8fd3f4) !important;
+    background-size: 400% 400% !important;
+    animation: gradientBG 15s ease infinite !important;
+  }
+  
+  @keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+  
+  /* Remove Scrollbars */
+  .scrollable-posts-container {
+    max-height: none !important; /* Override the inline style */
+    overflow: visible !important; /* Remove scrollbars */
+    padding-right: 0 !important; /* Remove extra padding */
+  }
+  
+  /* Card Styling with vibrant colors */
+  .card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+    border-radius: 16px !important;
+    overflow: hidden !important;
+    border: none !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08) !important;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  .hover-effect:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12) !important;
+  }
+  
+  .post-card-wrapper {
+    margin-bottom: 2rem;
+  }
+  
+  /* Colorful post accent colors - rotating colors */
+  .post-card-wrapper:nth-child(5n+1) .post-accent-color {
+    background: linear-gradient(135deg, #ff6b6b, #ff9e7d);
+  }
+  
+  .post-card-wrapper:nth-child(5n+2) .post-accent-color {
+    background: linear-gradient(135deg, #4facfe, #00f2fe);
+  }
+  
+  .post-card-wrapper:nth-child(5n+3) .post-accent-color {
+    background: linear-gradient(135deg, #43e97b, #38f9d7);
+  }
+  
+  .post-card-wrapper:nth-child(5n+4) .post-accent-color {
+    background: linear-gradient(135deg, #fa709a, #fee140);
+  }
+  
+  .post-card-wrapper:nth-child(5n+5) .post-accent-color {
+    background: linear-gradient(135deg, #a18cd1, #fbc2eb);
+  }
+  
+  /* Typography */
+  .post-title {
+    color: #1a202c;
+    font-weight: 700;
+    line-height: 1.4;
+    transition: color 0.2s ease;
+    font-size: 1.25rem;
+  }
+  
+  .post-title:hover {
+    color: #4a5af8;
+    text-decoration: none;
+  }
+  
+  .post-content {
+    color: #4a5568;
+    line-height: 1.6;
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  
+  /* Author Section */
+  .post-accent-color {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Image Handling */
+  .img-preview-container {
+    overflow: hidden;
+    border-radius: 12px;
+    position: relative;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  .img-preview {
+    transition: transform 0.4s ease;
+    object-fit: cover;
+    width: 100%;
+    max-height: 200px;
+  }
+  
+  .img-preview-container:hover .img-preview {
+    transform: scale(1.08);
+  }
+  
+  .img-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  
+  .img-preview-container:hover .img-overlay {
+    opacity: 1;
+  }
+  
+  .img-overlay .btn {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s ease;
+    background-color: rgba(255, 255, 255, 0.9);
+  }
+  
+  .img-overlay .btn:hover {
+    transform: scale(1.15);
+    background-color: white;
+  }
+  
+  /* File Card Styling */
+  .file-card {
+    transition: all 0.3s ease;
+    background-color: #f7fafc !important;
+    border-radius: 12px;
+  }
+  
+  .file-card:hover {
+    background-color: #edf2f7 !important;
+    transform: translateY(-3px);
+  }
+  
+  /* Colorful file icons */
+  .post-card-wrapper:nth-child(5n+1) .file-icon {
+    background-color: rgba(255, 107, 107, 0.15);
+    color: #ff6b6b !important;
+  }
+  
+  .post-card-wrapper:nth-child(5n+2) .file-icon {
+    background-color: rgba(79, 172, 254, 0.15);
+    color: #4facfe !important;
+  }
+  
+  .post-card-wrapper:nth-child(5n+3) .file-icon {
+    background-color: rgba(67, 233, 123, 0.15);
+    color: #43e97b !important;
+  }
+  
+  .post-card-wrapper:nth-child(5n+4) .file-icon {
+    background-color: rgba(250, 112, 154, 0.15);
+    color: #fa709a !important;
+  }
+  
+  .post-card-wrapper:nth-child(5n+5) .file-icon {
+    background-color: rgba(161, 140, 209, 0.15);
+    color: #a18cd1 !important;
+  }
+  
+  .file-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    border-radius: 10px;
+  }
+  
+  .file-name {
+    font-weight: 500;
+    max-width: 200px;
+  }
+  
+  /* Category Badge */
+  .category-badge {
+    font-weight: 600;
+    font-size: 0.8rem;
+    letter-spacing: 0.03em;
+    transition: all 0.3s ease;
+    padding: 0.5rem 1rem;
+    border-radius: 25px;
+  }
+  
+  /* Colorful category badges */
+  .post-card-wrapper:nth-child(5n+1) .category-badge {
+    background-color: rgba(255, 107, 107, 0.15) !important;
+    color: #ff6b6b !important;
+  }
+  
+  .post-card-wrapper:nth-child(5n+2) .category-badge {
+    background-color: rgba(79, 172, 254, 0.15) !important;
+    color: #4facfe !important;
+  }
+  
+  .post-card-wrapper:nth-child(5n+3) .category-badge {
+    background-color: rgba(67, 233, 123, 0.15) !important;
+    color: #43e97b !important;
+  }
+  
+  .post-card-wrapper:nth-child(5n+4) .category-badge {
+    background-color: rgba(250, 112, 154, 0.15) !important;
+    color: #fa709a !important;
+  }
+  
+  .post-card-wrapper:nth-child(5n+5) .category-badge {
+    background-color: rgba(161, 140, 209, 0.15) !important;
+    color: #a18cd1 !important;
+  }
+  
+  .blog-link:hover .category-badge {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+  }
+  
+  /* Empty State */
+  .empty-state {
+    padding: 80px 0;
+    text-align: center;
+    background: linear-gradient(135deg, #f6f9fc, #f0f4f8);
+    border-radius: 16px;
+    margin: 2rem 0;
+  }
+  
+  .empty-state i {
+    background: linear-gradient(135deg, #4facfe, #00f2fe);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 1.5rem;
+  }
+  
+  .empty-state h3 {
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: #2d3748;
+  }
+  
+  .empty-state p {
+    color: #4a5568;
+    margin-bottom: 1.5rem;
+  }
+  
+  .empty-state .btn {
+    background: linear-gradient(135deg, #4facfe, #00f2fe);
+    border: none;
+    padding: 0.5rem 1.5rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+  }
+  
+  .empty-state .btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(79, 172, 254, 0.3);
+  }
+  
+  /* Animations */
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  #postsContainer .col {
+    animation: fadeIn 0.4s ease-out forwards;
+  }
+  
+  #postsContainer .col:nth-child(2) {
+    animation-delay: 0.1s;
+  }
+  
+  #postsContainer .col:nth-child(3) {
+    animation-delay: 0.2s;
+  }
+  
+  /* Responsive fixes */
+  @media (max-width: 768px) {
+    .post-card-wrapper {
+      margin-bottom: 1.5rem;
+    }
+    
+    .card-body {
+      padding: 1.25rem;
+    }
+    
+    .post-title {
+      font-size: 1.1rem;
+    }
+  }
+
+  .tetris-container {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)) !important;
+    gap: 1rem !important;
+  }
+
+  .card:hover {
+    transform: translateY(-8px) !important;
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2) !important;
+  }

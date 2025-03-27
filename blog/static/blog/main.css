@@ -1,0 +1,540 @@
+/* Base Styles */
+body {
+    font-family: 'Nunito Sans', sans-serif; /* Modern, readable font */
+    color: #333; /* Dark gray for text */
+    overflow-x: hidden;
+    line-height: 1.7;
+}
+
+/* --- Typography --- */
+h1, h2, h3, h4, h5, h6 {
+    color: #2c3e50; /* Slightly darker heading color */
+    font-weight: 700;
+    line-height: 1.4;
+}
+
+/* --- Base Card Styles --- */
+.card {
+    background: rgba(0, 0, 0, 0.6) !important; /* Override card backgrounds */
+    border: none !important;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+    border-radius: 1rem; /* Rounded corners */
+    transition: all 0.3s ease;
+    opacity: 0;
+    transform: translateY(20px);
+    word-wrap: break-word !important;
+    overflow-wrap: break-word !important;
+    height: fit-content !important;
+    min-height: 100px !important;
+    break-inside: avoid !important;
+    margin-bottom: 1.5rem !important;
+    display: inline-block !important;
+    width: 100% !important;
+}
+
+.card.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.card:hover {
+    box-shadow: 0 0.75rem 1.5rem rgba(0, 0, 0, 0.08);
+    transform: translateY(-5px);
+}
+
+/* --- Hover Effects --- */
+.hover-effect {
+    transition: transform 0.3s, box-shadow 0.3s;
+    will-change: transform;
+}
+
+.hover-effect:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0.75rem 1.5rem rgba(0, 0, 0, 0.08) !important;
+}
+
+/* --- Post Elements --- */
+.post-title {
+    color: #34495e; /* Darker title color */
+    font-weight: 700;
+    transition: color 0.3s ease;
+    position: relative;
+    display: inline-block;
+    font-size: 1.5rem;
+}
+
+.post-title:after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0.25rem;
+    bottom: -0.5rem;
+    left: 0;
+    background-color: #3498db; /* Blue underline */
+    transition: width 0.4s ease;
+    border-radius: 0.25rem;
+}
+
+.card:hover .post-title {
+    color: #2980b9 !important;
+}
+
+.card:hover .post-title:after {
+    width: 100%;
+}
+
+.post-content {
+    line-height: 1.8;
+    color: #555; /* Medium gray for content */
+    font-size: 1.1rem;
+}
+
+/* --- Author Section --- */
+.rounded-circle.shadow-sm {
+    border: 0.125rem solid #fff;
+    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.08) !important;
+    transition: transform 0.3s ease;
+}
+
+.rounded-circle.shadow-sm:hover {
+    transform: scale(1.1);
+}
+
+/* --- Image Preview Container --- */
+.img-preview-container {
+    overflow: hidden;
+    border-radius: 0.75rem;
+    box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.05);
+}
+
+.img-preview {
+    transition: transform 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+    width: 100%;
+    object-fit: cover;
+    height: 15rem; /* Fixed height for image previews */
+}
+
+.img-overlay {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(0.25rem);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.img-preview-container:hover .img-overlay {
+    opacity: 1;
+}
+
+.img-preview-container:hover .img-preview {
+    transform: scale(1.1);
+}
+
+.img-overlay .btn {
+    transform: translateY(10px);
+    transition: transform 0.4s, background-color 0.3s;
+    opacity: 0.9;
+}
+
+.img-overlay:hover .btn {
+    transform: translateY(0);
+}
+
+.img-overlay .btn:hover {
+    background-color: white;
+    opacity: 1;
+}
+
+/* --- File Card Styles --- */
+.file-card {
+    transition: all 0.3s ease;
+    border-radius: 0.625rem;
+    background-color: #f0f0f0 !important;
+    background: rgba(0, 0, 0, 0.6) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    backdrop-filter: blur(5px) !important;
+}
+
+.file-card:hover {
+    background-color: #e0e0e0 !important;
+    transform: translateY(-0.3125rem);
+    background: rgba(0, 0, 0, 0.7) !important;
+    border-color: #ffd700 !important;
+}
+
+.file-icon {
+    transition: transform 0.4s;
+}
+
+.file-card:hover .file-icon {
+    transform: scale(1.1);
+}
+
+.blog-link .badge {
+    transition: all 0.3s ease-in-out;
+    font-weight: 500;
+    letter-spacing: 0.02rem;
+}
+
+.blog-link:hover .badge {
+    background-color: rgba(52, 152, 219, 0.2) !important;
+    transform: translateY(-0.125rem);
+}
+
+/* --- Pagination Styling --- */
+.pagination {
+    margin-top: 2rem;
+}
+
+.pagination .page-link {
+    border-radius: 50%;
+    margin: 0 0.25rem;
+    width: 2.625rem;
+    height: 2.625rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    color: #495057;
+    background-color: #f8f9fa;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.pagination .page-item.active .page-link {
+    background-color: #3498db;
+    color: white;
+    box-shadow: 0 0.25rem 0.625rem rgba(52, 152, 219, 0.4);
+}
+
+.pagination .page-link:hover {
+    background-color: #e9ecef;
+    transform: translateY(-0.125rem);
+    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.05);
+}
+
+.pagination .page-item.active .page-link:hover {
+    background-color: #2980b9;
+}
+
+/* --- Empty State Styling --- */
+.empty-state {
+    padding: 5rem 0;
+    text-align: center;
+    background: #f0f4f8;
+    border-radius: 1rem;
+    margin: 2rem 0;
+}
+
+.empty-state i {
+    color: #3498db;
+    margin-bottom: 1.5rem;
+}
+
+.empty-state h3 {
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: #2d3748;
+}
+
+.empty-state p {
+    color: #4a5568;
+    margin-bottom: 1.5rem;
+}
+
+.empty-state .btn {
+    background-color: #3498db;
+    border: none;
+    padding: 0.75rem 1.75rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    color: #fff;
+}
+
+.empty-state .btn:hover {
+    transform: translateY(-0.25rem);
+    box-shadow: 0 0.25rem 0.75rem rgba(52, 152, 219, 0.4);
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 767.98px) {
+    .card-body {
+        padding: 1rem;
+    }
+
+    .pagination .page-link {
+        width: 2.25rem;
+        height: 2.25rem;
+        margin: 0 0.125rem;
+    }
+
+    .post-title {
+        font-size: 1.25rem;
+    }
+
+    .img-preview {
+        height: 12rem; /* Adjusted height for smaller screens */
+    }
+}
+
+/* --- Animation for Page Load --- */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.card {
+    animation: fadeInUp 0.5s forwards;
+    animation-delay: calc(var(--card-index) * 0.1s);
+}
+
+/* --- Navigation --- */
+.navbar {
+    background-color: #fff;
+    border-bottom: 0.0625rem solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.05);
+}
+
+.navbar-brand {
+    color: #3498db;
+    font-weight: 800;
+}
+
+.nav-link {
+    color: #444;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: #3498db;
+}
+
+/* --- Buttons --- */
+.btn-primary {
+    background-color: #3498db;
+    border: none;
+    transition: background-color 0.3s ease;
+    color: #fff;
+    font-weight: 600;
+}
+
+.btn-primary:hover {
+    background-color: #2980b9;
+}
+
+.btn-outline-light {
+    border-color: #3498db;
+    color: #3498db;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.btn-outline-light:hover {
+    background-color: #3498db;
+    color: #fff;
+}
+
+/* --- Footer --- */
+footer {
+    background-color: #fff;
+    color: #555;
+    border-top: 0.0625rem solid rgba(0, 0, 0, 0.1);
+}
+
+/* --- Animations --- */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.card {
+    animation: fadeIn 0.5s forwards;
+    animation-delay: calc(var(--card-index) * 0.1s);
+}
+
+/* --- Additional Styles --- */
+.form-control {
+    border-radius: 0.5rem;
+    border: 0.0625rem solid #ddd;
+    padding: 0.75rem 1rem;
+    transition: border-color 0.3s ease;
+}
+
+.form-control:focus {
+    border-color: #3498db;
+    box-shadow: none;
+}
+
+label {
+    font-weight: 600;
+    color: #444;
+}
+
+/* --- Utilities --- */
+.text-muted {
+    color: #777 !important;
+}
+
+/* Custom Font */
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700&display=swap');
+
+/* Add new styles for file names */
+.file-name {
+    word-break: break-word !important;
+    overflow-wrap: break-word !important;
+    white-space: normal !important;
+    max-width: 100% !important;
+    color: #387d86 !important;
+    font-size: 0.9rem !important;
+    line-height: 1.4 !important;
+    margin: 0.5rem 0 !important;
+    background: linear-gradient(45deg, #2980b9, #3498db) !important;
+    padding: 8px 12px !important;
+    border-radius: 6px !important;
+    display: inline-block !important;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1) !important;
+}
+
+/* Adjust padding for better text wrapping */
+.card-body {
+    padding: 1.25rem !important;
+    width: 100% !important;
+}
+
+/* File container adjustments */
+.file-container {
+    width: 100% !important;
+    max-width: 100% !important;
+}
+
+/* Tetris Container Updates */
+.tetris-container {
+    columns: 3 250px !important;
+    column-gap: 1.5rem !important;
+    padding: 1.5rem 0 !important;
+}
+
+/* Card size variations */
+.card:nth-child(2n) .img-preview {
+    height: 280px !important;
+}
+
+.card:nth-child(3n) .img-preview {
+    height: 360px !important;
+}
+
+.card:nth-child(4n) .img-preview {
+    height: 220px !important;
+}
+
+/* Remove previous grid styles */
+.card:nth-child(3n+1),
+.card:nth-child(3n+2),
+.card:nth-child(3n+3) {
+    grid-row: unset !important;
+}
+
+/* Masonry Layout for Tetris-like Cards */
+.tetris-container {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)) !important;
+    grid-auto-rows: 10px !important; /* Base row height */
+    gap: 1rem !important;
+}
+
+.card {
+    grid-row: span 30 !important; /* Default span for cards */
+    break-inside: avoid !important;
+    margin: 0 !important;
+    overflow: hidden !important;
+    word-wrap: break-word !important;
+    overflow-wrap: break-word !important;
+}
+
+/* Dynamic Card Heights */
+.card:nth-child(3n+1) {
+    grid-row: span 40 !important;
+}
+
+.card:nth-child(3n+2) {
+    grid-row: span 50 !important;
+}
+
+.card:nth-child(3n+3) {
+    grid-row: span 35 !important;
+}
+
+/* Updated File Name Styles */
+.file-name {
+    color: #ffd700 !important; /* Bright yellow for visibility */
+    font-size: 0.9rem !important;
+    font-weight: 600 !important;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8) !important;
+    background: rgba(0, 0, 0, 0.7) !important;
+    padding: 8px 12px !important;
+    margin: 0.5rem 0 !important;
+    border-radius: 4px !important;
+    display: block !important;
+    word-wrap: break-word !important;
+    overflow-wrap: break-word !important;
+    white-space: normal !important;
+    max-width: 100% !important;
+}
+
+/* Dynamic Card Heights Based on File Extension */
+.card[data-file-extension="jpg"],
+.card[data-file-extension="png"],
+.card[data-file-extension="jpeg"] {
+    grid-row: span 40 !important;
+}
+
+.card[data-file-extension="pdf"] {
+    grid-row: span 50 !important;
+}
+
+.card[data-file-extension="mp4"],
+.card[data-file-extension="webm"] {
+    grid-row: span 60 !important;
+}
+
+.card[data-file-extension="other"] {
+    grid-row: span 30 !important;
+}
+
+/* Adjust file container layout */
+.file-container {
+    display: flex !important;
+    align-items: center !important;
+    gap: 1rem !important;
+    overflow: hidden !important;
+}
+
+/* File icon styling */
+.file-icon {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 48px !important;
+    height: 48px !important;
+    border-radius: 8px !important;
+    background-color: rgba(0, 123, 255, 0.1) !important;
+    color: #007bff !important;
+}

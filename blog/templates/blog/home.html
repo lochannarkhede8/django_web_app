@@ -1,0 +1,75 @@
+{% extends "blog/base.html" %}
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'blog/home.css' %}">
+<script src="{% static 'blog/home.js' %}"></script>
+{% block content %}
+<div class="container py-5">
+  <div class="tetris-container">
+    {% for post in posts %}
+    <div class="card" data-file-extension="{% if post.file %}{{ post.file.name|lower|slice:'-4:'|default:'other' }}{% else %}other{% endif %}">
+      <div class="card-body">
+        <div class="d-flex align-items-center mb-3">
+          <a href="{{ post.author.profile.image.url }}" target="_blank" class="me-3">
+            <img src="{{ post.author.profile.image.url }}" alt="{{ post.author }}" 
+                 class="rounded-circle shadow-sm" width="40" height="40" style="object-fit: cover;">
+          </a>
+          <div>
+            <a href="{% url 'user-posts' post.author.username %}" class="text-decoration-none fw-bold neon-blue">
+              {{ post.author }}
+            </a>
+            <div class="text-muted small">{{ post.date_upload|date:"F d, Y" }}</div>
+          </div>
+          <div class="ms-auto post-accent-color"></div>
+        </div>
+        <h2 class="fs-5 mb-3">
+          <a href="{% url 'post-detail' post.id %}" class="text-decoration-none stretched-link post-title neon-blue">
+            {{ post.title }}
+          </a>
+        </h2>
+        {% if post.blog %}
+        <div class="mb-3">
+          <a href="{{ post.file.url }}" download class="text-decoration-none blog-link">
+            <span class="badge px-3 py-2 rounded-pill category-badge neon-blue">
+              {{ post.blog }}
+            </span>
+          </a>
+        </div>
+        {% endif %}
+        <p class="card-text text-secondary post-content mb-4">{{ post.content|truncatechars:120 }}</p>
+        {% if post.file %}
+        <div class="file-container d-flex align-items-center mt-3">
+          <div class="file-icon me-3">
+            <i class="far fa-file fa-2x text-info"></i>
+          </div>
+          <div class="file-info">
+            <div class="file-name">{{ post.file.name }}</div>
+            <a href="{{ post.file.url }}" download class="btn btn-sm btn-outline-info mt-2">
+              <i class="fas fa-download me-1"></i> Download
+            </a>
+          </div>
+        </div>
+        {% endif %}
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+  {% if not posts %}
+  <div class="empty-state">
+    <div class="mb-4">
+      <i class="fas fa-file-alt fa-4x neon-blue"></i>
+    </div>
+    <h3>No posts yet</h3>
+    <p class="text-muted">Be the first to share something with the community!</p>
+    {% if user.is_authenticated %}
+    <a href="{% url 'post-create' %}" class="btn btn-primary">
+      <i class="fas fa-plus me-2"></i>Create New Post
+    </a>
+    {% else %}
+    <a href="{% url 'login' %}" class="btn btn-primary">
+      <i class="fas fa-sign-in-alt me-2"></i>Login to Post
+    </a>
+    {% endif %}
+  </div>
+  {% endif %}
+</div>
+{% endblock content %}

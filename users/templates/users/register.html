@@ -1,0 +1,50 @@
+{% extends "blog/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card" style="background: rgba(0, 0, 0, 0.6) !important;">
+                    <div class="card-body p-5">
+                        <h2 class="text-center mb-4 text-white">
+                            <i class="fas fa-user-plus me-2"></i>Join Today
+                        </h2>
+                        <form method="POST">
+                            {% csrf_token %}
+                            <fieldset class="form-group mb-4">
+                                <div class="text-white">
+                                    {{ form|crispy }}
+                                </div>
+                            </fieldset>
+                            <button class="btn btn-primary w-100 py-2 mb-3" type="submit">
+                                <i class="fas fa-paper-plane me-2"></i>Sign Up
+                            </button>
+                        </form>
+                        <div class="text-center pt-3" style="border-top: 1px solid rgba(255, 255, 255, 0.2);">
+                            <small class="text-white">
+                                Already Have An Account? 
+                                <a href="{% url 'login' %}" class="text-warning">Sign In</a>
+                            </small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<style>
+.form-control {
+    background-color: rgba(33, 37, 41, 0.8) !important;
+    color: white !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+}
+.form-control:focus {
+    background-color: rgba(33, 37, 41, 0.9) !important;
+    color: white !important;
+    border-color: #ffd700 !important;
+}
+.form-label {
+    color: white !important;
+}
+</style>
+{% endblock %}
